@@ -1,19 +1,28 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const globalSlice = createSlice({
-    name:'global',
+    name: 'global',
     initialState: {
-        currentUsername:'Superman'
+        currentUsername: 'Superman'
+    },
+    reducers: {
+        changeCurrentUsername: (state, action) => {
+            state.currentUsername = action.payload
+        }
     }
-})
+});
+
+
+export const {changeCurrentUsername} = globalSlice.actions
+
 const productSlice = createSlice({
-    name:'product',
+    name: 'product',
     initialState: {
-        allProducts:[]
+        allProducts: []
     }
 })
 export const store = configureStore({
-    reducer:{
+    reducer: {
         global: globalSlice.reducer,
         product: productSlice.reducer
     }
