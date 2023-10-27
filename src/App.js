@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import MyComponent from './MyComponent';
 import { useDispatch } from 'react-redux';
 import { changeCurrentUsername } from './data/store';
+import Stopwatch from './Stopwatch';
 
 function App() {
 
@@ -18,15 +19,8 @@ function App() {
 
   return (
     <div className="App">
-
-      <button onClick={magic}>Magic</button>
-      <br/>
-      <br/>
-      <br/>
-
-      <button onClick={() => setFlag(!flag)}>Toggle</button>
-      <hr />
-      {flag == true ? <MyComponent /> : <></>}
+       <button onClick={()=>setFlag(!flag)}>Toggle</button>
+        {flag && <Stopwatch/>}
     </div>
   );
 }
